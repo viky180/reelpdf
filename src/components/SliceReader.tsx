@@ -175,31 +175,33 @@ export const SliceReader: React.FC<SliceReaderProps> = ({
             >
                 {slices.map((slice, index) => (
                     <div key={slice.id} className="slice" data-index={index}>
-                        {/* Overlap indicator */}
-                        {slice.overlapHeight > 0 && (
-                            <div
-                                className="overlap-indicator"
-                                style={{ height: slice.overlapHeight / 2 }}
+                        <div className="slice-content">
+                            {/* Overlap indicator */}
+                            {slice.overlapHeight > 0 && (
+                                <div
+                                    className="overlap-indicator"
+                                    style={{ height: slice.overlapHeight / 2 }}
+                                />
+                            )}
+                            <img
+                                src={slice.imageUrl}
+                                alt={`Page ${slice.pageNumber}, slice ${slice.sliceIndex + 1}`}
+                                className="slice-image"
+                                draggable={false}
                             />
-                        )}
-                        <img
-                            src={slice.imageUrl}
-                            alt={`Page ${slice.pageNumber}, slice ${slice.sliceIndex + 1}`}
-                            className="slice-image"
-                            draggable={false}
-                        />
-                        {/* Text layer for selection */}
-                        {slice.textItems && slice.textItems.length > 0 && (
-                            <TextLayer
-                                textItems={slice.textItems}
-                                sliceHeight={slice.height}
-                                sliceWidth={slice.width}
-                                documentId={documentId}
-                                sliceIndex={slice.globalIndex}
-                                pageNumber={slice.pageNumber}
-                                onHighlightSaved={handleHighlightSaved}
-                            />
-                        )}
+                            {/* Text layer for selection */}
+                            {slice.textItems && slice.textItems.length > 0 && (
+                                <TextLayer
+                                    textItems={slice.textItems}
+                                    sliceHeight={slice.height}
+                                    sliceWidth={slice.width}
+                                    documentId={documentId}
+                                    sliceIndex={slice.globalIndex}
+                                    pageNumber={slice.pageNumber}
+                                    onHighlightSaved={handleHighlightSaved}
+                                />
+                            )}
+                        </div>
                     </div>
                 ))}
             </div>

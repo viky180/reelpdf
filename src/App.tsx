@@ -3,6 +3,7 @@ import { FileUpload } from './components/FileUpload';
 import { SliceReader } from './components/SliceReader';
 import { HighlightsPanel } from './components/HighlightsPanel';
 import { ProcessingOverlay } from './components/ProcessingOverlay';
+import { InstallPrompt } from './components/InstallPrompt';
 import { loadPDF, getPDFInfo, renderAllPages } from './lib/pdfRenderer';
 import { processDocumentSlices, revokeSliceUrls, loadSlicesFromStorage } from './lib/pageSlicer';
 import type { SliceInfo, ProcessingProgress } from './lib/pageSlicer';
@@ -185,6 +186,9 @@ function App() {
           <button onClick={() => setError(null)}>×</button>
         </div>
       )}
+
+      {/* Mobile install prompt */}
+      <InstallPrompt />
     </>
   );
 }

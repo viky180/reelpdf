@@ -91,21 +91,38 @@
 
 .slice {
     min-height: 100%;
+    min-height: 100dvh;
     display: flex;
     justify-content: center;
     align-items: center;
     scroll-snap-align: start;
     scroll-snap-stop: always;
     position: relative;
-    padding: var(--space-sm);
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Wrapper to scale content to fill viewport */
+.slice-content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
 .slice-image {
-    max-width: 100%;
+    /* Fill the viewport width, maintaining aspect ratio */
+    width: 100vw;
     height: auto;
-    border-radius: var(--radius-sm);
+    max-height: 100dvh;
+    object-fit: contain;
+    border-radius: 0;
     user-select: none;
     -webkit-user-drag: none;
+    /* Support for zoom feature */
+    transform-origin: center center;
 }
 
 .overlap-indicator {
@@ -249,12 +266,13 @@
 /* Tablet and desktop */
 @media (min-width: 768px) {
     .slice {
-        padding: var(--space-lg);
+        padding: var(--space-sm);
     }
 
     .slice-image {
-        max-width: 90%;
-        max-height: 90vh;
+        width: 100%;
+        max-width: 1200px;
+        max-height: 95dvh;
         object-fit: contain;
     }
 }
