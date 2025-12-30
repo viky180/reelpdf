@@ -1,0 +1,99 @@
+.note-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    z-index: var(--z-modal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-md);
+    animation: fadeIn var(--transition-fast);
+}
+
+.note-modal {
+    width: 100%;
+    max-width: 400px;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-xl);
+    padding: var(--space-lg);
+    animation: slideUp var(--transition-base);
+}
+
+.note-header {
+    margin-bottom: var(--space-md);
+}
+
+.note-header h3 {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    margin-bottom: var(--space-xs);
+}
+
+.note-meta {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+}
+
+.note-textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: var(--space-md);
+    background: var(--bg-tertiary);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    resize: vertical;
+    margin-bottom: var(--space-md);
+}
+
+.note-textarea:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+}
+
+.note-textarea::placeholder {
+    color: var(--text-muted);
+}
+
+.note-actions {
+    display: flex;
+    gap: var(--space-sm);
+    justify-content: flex-end;
+}
+
+.note-btn {
+    padding: var(--space-sm) var(--space-lg);
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.note-btn.cancel {
+    background: var(--glass-bg);
+    color: var(--text-secondary);
+}
+
+.note-btn.cancel:hover {
+    background: var(--bg-tertiary);
+}
+
+.note-btn.save {
+    background: var(--accent-gradient);
+    color: white;
+}
+
+.note-btn.save:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
+.note-btn.save:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

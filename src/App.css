@@ -1,0 +1,25 @@
+.error-toast {
+  position: fixed;
+  bottom: var(--space-xl);
+  bottom: calc(var(--space-xl) + var(--safe-bottom));
+  left: 50%;
+  transform: translateX(-50%);
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  color: var(--error);
+  z-index: var(--z-toast);
+  animation: slideUp var(--transition-base);
+}
+
+.error-toast button {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: var(--text-xl);
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
